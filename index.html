@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rock, Paper, Scissors Game</title>
+  </head>
+
+  <body>
+    <script>
+      let userSelection = prompt(
+        "Please choose one from: rock, paper or scissors."
+      );
+
+      userSelection = userSelection.toLowerCase().trim();
+
+      let choiceStack = ["paper", "rock", "scissors"];
+      let randomNum = Math.floor(
+        Math.random() * 3
+      ); /* chooses a random number between 0 and 1, multiplies it by 3 and Math.floor rounds result to the largest integer less than or equal to it. */
+      let computerSelection =
+        choiceStack[
+          randomNum
+        ]; /* the number selects the option in the choiceStack variable where 1 - paper, 2 - rock and 3 - scissors */
+      console.log(
+        `Your choice is ${userSelection}, the computer's choice is ${computerSelection}.`
+      );
+
+      function computerPlay() {
+        if (userSelection == computerSelection) {
+          return alert("It's a tie!");
+        } else if (userSelection === "paper" && computerSelection === "rock") {
+          return alert("You win! Paper beats Rock!");
+        } else if (
+          userSelection === "rock" &&
+          computerSelection === "scissors"
+        ) {
+          return alert("You win! Rock beats Scissors!");
+        } else if (
+          userSelection === "scissors" &&
+          computerSelection === "paper"
+        ) {
+          return alert("You win! Scissors beats Paper!");
+        } else if (
+          userSelection === "scissors" &&
+          computerSelection === "rock"
+        ) {
+          return alert("You lose :( ! Rock beats Scissors!");
+        } else if (userSelection === "rock" && computerSelection === "paper") {
+          return alert("You lose :( ! Paper beats Rock!");
+        } else if (
+          userSelection === "paper" &&
+          computerSelection === "scissors"
+        ) {
+          return alert("You lose :( ! Scissors beats Paper!");
+        } else {
+          return alert("Invalid input, please try again.");
+        }
+      }
+
+      computerPlay(userSelection, computerSelection);
+    </script>
+  </body>
+</html>
